@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 import { ProfileBar } from './Post/ProfileBar';
 import Image from './Post/Image';
 import { Actions } from './Post/Actions';
-import { LikedBy } from './Post/LikedBy';
+import { Description } from './Post/Description';
 import { Comments } from './Post/Comments';
 
 export default function Post({data}) {
@@ -16,8 +16,8 @@ export default function Post({data}) {
       <ProfileBar data={data.ProfileBar} />
       <Image likeState={likeState} data={data.Image} />
       <Actions likeState={likeState} bookmarkState={bookmarkState}/>
-      <LikedBy />
-      <Comments />
+      <Description data={data.Description}/>
+      <Comments data={data.Comments}/>
     </>
   )
 }

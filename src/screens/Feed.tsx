@@ -3,42 +3,9 @@ import { SafeAreaView, View, FlatList, StyleSheet, Text } from 'react-native';
 import Constants from 'expo-constants';
 import Post from './Feed/Post'
 
+import { TestData } from './testData'
+
 export default function Feed() {
-
-  const TestData = [
-    { 
-      Image: { 
-        source: require('./testdata/pic.png') 
-      }, 
-      ProfileBar: {
-        pic: {
-          source: require('./testdata/profile.png') 
-        }
-      },
-      id: '00' 
-    }, 
-    { 
-      Image: { 
-        source: require('./testdata/pic.png') 
-      }, 
-      ProfileBar: {
-        pic: {
-          source: require('./testdata/profile.png') 
-        }
-      },
-      id: '01' 
-    }, { 
-      Image: { 
-        source: require('./testdata/pic.png') 
-      }, 
-      ProfileBar: {
-        pic: {
-          source: require('./testdata/profile.png') 
-        }
-      },
-      id: '02' 
-    }]
-
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
@@ -52,6 +19,7 @@ export default function Feed() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: Constants.statusBarHeight
+    marginTop: Constants.statusBarHeight,
+    flex: 1
   },
 })

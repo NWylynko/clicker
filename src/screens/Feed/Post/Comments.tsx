@@ -1,10 +1,16 @@
 import React from 'react';
-
 import { View, StyleSheet } from 'react-native'
+import { Comment } from './Comment';
 
-export function Comments() {
+export function Comments({ data }) {
+
+  console.log(data[0])
+
   return (
     <View style={styles.container}>
+
+      <Comment data={data[0]}/>
+      <Comment data={data[1]}/>
 
     </View>
   );
@@ -12,8 +18,8 @@ export function Comments() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'yellow',
     width: '100%',
-    height: 75
+    padding: 5,
+    paddingHorizontal: 15
   },
 })
