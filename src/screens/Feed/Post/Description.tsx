@@ -1,15 +1,31 @@
-import React from 'react';
+import React, { useState, memo, useEffect } from 'react';
 
-import { View, StyleSheet, Text } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 import { textCutOff } from '../../../utils/textCutOff';
 
-export function Description({data}) {
+function Description({data}) {
+
+  const [more, setMore] = useState(false)
+
+  useEffect(() => {
+    return () => {
+      setMore(false)
+    };
+  }, [])
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>{textCutOff(data.text)}</Text>
-    </View>
+    <TouchableOpacity 
+      style={styles.container} 
+      disabled={more} //once pressed disable to remove the flash that shows up on press
+      onPress={() => setMore(true)}
+      >
+      
+      <Text style={styles.text}>{more ? data.text : textCutOff(data.text)}</Text>
+    </TouchableOpacity>
   );
 }
+
+export default memo(Description)
 
 const styles = StyleSheet.create({
   container: {

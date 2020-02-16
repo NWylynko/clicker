@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Feather } from '@expo/vector-icons';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 
-export function Send({ setToggle }) {
+function Send({ setToggle }) {
 
   return (
     <TouchableOpacity
@@ -16,6 +16,8 @@ export function Send({ setToggle }) {
       />
     </TouchableOpacity>);
 }
+
+export default memo(Send)
 
 const styles = StyleSheet.create({
   container: {

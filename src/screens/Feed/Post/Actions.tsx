@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { View, StyleSheet } from 'react-native'
-import { Bookmark } from './Actions/Bookmark';
-import { Send } from './Actions/Send';
-import { Message } from './Actions/Message';
-import { Heart } from './Actions/Heart';
-import { QuickInput } from './Actions/QuickInput';
+import Bookmark from './Actions/Bookmark';
+import Send from './Actions/Send';
+import Message from './Actions/Message';
+import Heart from './Actions/Heart';
+import QuickInput from './Actions/QuickInput';
 
-export function Actions({ likeState, bookmarkState }) {
+function Actions({ likeState, bookmarkState }) {
 
   const [MessageToggle, setMessageToggle] = useState(false)
   const [SendToggle, setSendToggle] = useState(false)
+
+  useEffect(() => {
+    return () => {
+      setMessageToggle(false)
+      setSendToggle(true)
+    };
+  }, [])
 
   function NormalView() {
     return (
@@ -51,9 +58,7 @@ export function Actions({ likeState, bookmarkState }) {
   );
 }
 
-
-
-
+export default memo(Actions)
 
 const styles = StyleSheet.create({
   container: {

@@ -1,20 +1,19 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native'
-import { Comment } from './Comment';
+import React, { memo } from 'react';
+import { View, StyleSheet, TouchableOpacity } from 'react-native'
+import Comment from './Comments/Comment';
 
-export function Comments({ data }) {
-
-  console.log(data[0])
-
+function Comments({ data }) {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}>
 
-      <Comment data={data[0]}/>
-      <Comment data={data[1]}/>
+      { data[0] ? <Comment data={data[0]}/> : null }
+      { data[0] ? <Comment data={data[1]}/> : null }
 
-    </View>
+    </TouchableOpacity>
   );
 }
+
+export default memo(Comments)
 
 const styles = StyleSheet.create({
   container: {

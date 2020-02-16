@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { FontAwesome } from '@expo/vector-icons';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 
-export function Bookmark({bookmarkState}) {
+function Bookmark({bookmarkState}) {
 
   const [bookmarked, setBookmarked] = bookmarkState;
 
@@ -19,6 +19,8 @@ export function Bookmark({bookmarkState}) {
     </TouchableOpacity>
   );
 }
+
+export default memo(Bookmark)
 
 const styles = StyleSheet.create({
   container: {

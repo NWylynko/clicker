@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text } from 'react-native';
+import { SafeAreaView, FlatList, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
 import Post from './Feed/Post'
 
@@ -11,7 +11,7 @@ export default function Feed() {
       <FlatList
         data={TestData}
         renderItem={({ item }) => <Post data={item} />}
-        keyExtractor={item => item.id}
+        keyExtractor={item => item.timestamp.toString()}
       />
     </SafeAreaView>
   )
@@ -20,6 +20,7 @@ export default function Feed() {
 const styles = StyleSheet.create({
   container: {
     marginTop: Constants.statusBarHeight,
-    flex: 1
+    flex: 1,
+    backgroundColor: 'white'
   },
 })

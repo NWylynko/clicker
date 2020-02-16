@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { AntDesign } from '@expo/vector-icons';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 
-export function Heart({ likeState }) {
+function Heart({ likeState }) {
 
   const [liked, setLiked] = likeState;
 
@@ -18,6 +18,8 @@ export function Heart({ likeState }) {
       />
     </TouchableOpacity>);
 }
+
+export default memo(Heart)
 
 const styles = StyleSheet.create({
   container: {

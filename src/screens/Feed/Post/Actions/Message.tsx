@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 
-export function Message({setToggle}) {
+function Message({setToggle}) {
 
   return (
     <TouchableOpacity
@@ -16,6 +16,8 @@ export function Message({setToggle}) {
       />
     </TouchableOpacity>);
 }
+
+export default memo(Message)
 
 const styles = StyleSheet.create({
   container: {

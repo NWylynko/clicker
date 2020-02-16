@@ -1,11 +1,14 @@
-import React from 'react';
-import { textCutOff } from '../../../utils/textCutOff';
+import React, { memo } from 'react';
+import { textCutOff } from '../../../../utils/textCutOff';
 import { View, Text, StyleSheet } from 'react-native';
-export function Comment({ data }) {
+
+function Comment({ data }) {
   return (<View style={styles.line}>
     <Text style={styles.bold}>{data.username} </Text><Text>{textCutOff(data.text)}</Text>
   </View>);
 }
+
+export default memo(Comment)
 
 const styles = StyleSheet.create({
   line: {

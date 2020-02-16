@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Dimensions, Image, TouchableOpacity, TouchableHighlight } from 'react-native'
+import { TouchableHighlight } from 'react-native'
 
 export default function DoubleTap({ children, onDoubleTap}) {
 

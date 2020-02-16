@@ -1,22 +1,30 @@
-import React, { useState } from 'react';
-import { StyleSheet, Dimensions, Image, TouchableOpacity, TouchableHighlight } from 'react-native'
+import React, { memo, useState } from 'react';
+import { StyleSheet, Dimensions, Text, View, Image } from 'react-native'
 import DoubleTap from '../../../components/DoubleTap'
 
-export default function ({ likeState, data }) {
+function PostImage({ likeState, data }) {
 
   const [liked, setLiked] = likeState
 
+  const styles = StyleSheet.create({
+    image: {
+      backgroundColor: data.color,
+      width: Dimensions.get('window').width,
+      height: Dimensions.get('window').width
+    },
+  })
+
   return (
-    <DoubleTap onDoubleTap={() => {setLiked(true)}}>
-      <Image style={styles.image} source={data.source}/>
+    <DoubleTap onDoubleTap={() => { setLiked(true) }}>
+      <Image
+        source={{uri: data.high}}
+        style={styles.image}
+        defaultSource={{uri: data.low}}
+      />
+
     </DoubleTap>
-    
+
   );
 }
 
-const styles = StyleSheet.create({
-  image: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').width
-  }
-})
+export default memo(PostImage)

@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { View, StyleSheet, Image, Text } from 'react-native'
 
-export function ProfileBar({data}) {
+function ProfileBar({data}) {
+
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={data.pic.source} />
+      <Image style={styles.image} source={{uri: data.pic.source}} />
       <View style={styles.nameContainer}>
-        <Text style={styles.name}>nwylynko</Text>
+        <Text style={styles.name}>{data.username}</Text>
       </View>
 
     </View>
   );
 }
+
+export default memo(ProfileBar)
 
 const styles = StyleSheet.create({
   container: {
@@ -24,7 +27,8 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
     borderRadius: 50,
-    margin: 10
+    margin: 10,
+    backgroundColor: 'lightpink',
   },
   nameContainer: {
     justifyContent: 'center',
