@@ -1,44 +1,75 @@
-[
+comments = [
   {
     'repeat(5, 10)': {
       id: '{{objectId()}}',
-      username: '{{firstName()}}',
-      pic: { source: 'http://placehold.it/32x32' } ,
+      user: {
+        username: '{{firstName()}}',
+        id: '{{objectId()}}'
+      },
+      pic: {
+        source: 'http://placehold.it/32x32'
+      },
       text: '{{lorem(1, "paragraphs")}}',
     }
   }
 ]
 
 
-[
+posts = [
   {
     'repeat(5, 10)': {
       Image: {
-      	high: 'http://placehold.it/500x500',
+        high: 'http://placehold.it/500x500',
         low: 'http://placehold.it/50x50',
         color: 'pink'
       },
       ProfileBar: {
-      	pic: {
-        	source: 'http://placehold.it/32x32'
+        pic: {
+          source: 'http://placehold.it/32x32'
         },
         username: '{{firstName()}}',
+        id: '{{objectId()}}',
       },
       Description: {
-      	text: '{{lorem(1, "paragraphs")}}',
+        text: '{{lorem(1, "paragraphs")}}',
       },
       Comments: [
-            {
-                'repeat(2, 2)': {
-                id: '{{objectId()}}',
-                username: '{{firstName()}}',
-                pic: { source: 'http://placehold.it/32x32' } ,
-                text: '{{lorem(1, "paragraphs")}}',
-                }
-            }
-        ],
+        {
+          'repeat(2, 2)': {
+            id: '{{objectId()}}',
+            user: {
+              username: '{{firstName()}}'
+            },
+            pic: {
+              source: 'http://placehold.it/32x32'
+            },
+            text: '{{lorem(1, "paragraphs")}}',
+          }
+        }
+      ],
       timestamp: 0,
       id: '{{objectId()}}',
     }
   }
 ]
+
+profile = {
+  id: '{{objectId()}}',
+  user: { 
+    username: '{{firstName()}}', 
+    first: '{{firstName()}}', 
+    last: '{{firstName()}}' 
+  },
+  pic: { 
+    source: 'http://placehold.it/500x500'
+  },
+  bio: '{{lorem(1, "paragraphs")}}',
+  posts: [
+    { 'repeat(5, 10)': 
+      { 
+        id: '{{objectId()}}', 
+        image: 'http://placehold.it/200x200', 
+      }
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 import React, { useState, memo, useEffect } from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 
-function QuickInput({ onSubmit }) {
+function QuickInput({ onSubmit, isMessage=true }) {
 
   const [text, setText] = useState('')
 
@@ -15,6 +15,7 @@ function QuickInput({ onSubmit }) {
         blurOnSubmit={true}
         enablesReturnKeyAutomatically={true}
         returnKeyType="send"
+        placeholder={isMessage ? "Leave a nice message..." : "Send to a friend..."}
       />
   );
     

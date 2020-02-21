@@ -7,7 +7,7 @@ export default function App() {
   if (isMobile) {
     return (<Navigation />)
   } else {
-    return (<View style={{ flex: 1, width: 600, alignSelf: 'center' }}><Navigation /></View>)
+    return (<View style={{ flex: 1, width: 500, alignSelf: 'center' }}><Navigation /></View>)
   }
   
 }

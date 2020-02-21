@@ -41,7 +41,7 @@ function Actions({ likeState, bookmarkState }) {
     return (
       <>
         <Send setToggle={setSendToggle} />
-        <QuickInput onSubmit={console.log} />
+        <QuickInput onSubmit={console.log} isMessage={false} />
       </>
     )
   }

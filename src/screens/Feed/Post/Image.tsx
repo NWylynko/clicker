@@ -1,6 +1,7 @@
 import React, { memo, useState } from 'react';
 import { StyleSheet, Dimensions, Text, View, Image } from 'react-native'
 import DoubleTap from '../../../components/DoubleTap'
+import { deviceWidth } from '../../../components/isMobile'
 
 function PostImage({ likeState, data }) {
 
@@ -9,8 +10,8 @@ function PostImage({ likeState, data }) {
   const styles = StyleSheet.create({
     image: {
       backgroundColor: data.color,
-      width: Dimensions.get('window').width,
-      height: Dimensions.get('window').width
+      width: deviceWidth,
+      height: deviceWidth
     },
   })
 

@@ -1,9 +1,7 @@
-import React from 'react'
-import '@expo/match-media'
-import { useMediaQuery } from "react-responsive";
+import { Dimensions } from 'react-native'
 
-export const isMobile = useMediaQuery({    
-    maxDeviceWidth: 600,
-    // alternatively...
-    query: "(max-device-width: 600px)"  
-  });
+export const trueDeviceWidth = Dimensions.get('window').width
+
+export const isMobile = trueDeviceWidth < 500 ? true : false
+
+export const deviceWidth = isMobile ? trueDeviceWidth : 500

@@ -1,17 +1,17 @@
 import React, { memo } from 'react';
 
-import { View, StyleSheet, Image, Text } from 'react-native'
+import { View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native'
 
-function ProfileBar({data}) {
+function ProfileBar({data, navigation}) {
 
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Profile', {id: data.id})}>
       <Image style={styles.image} source={{uri: data.pic.source}} />
       <View style={styles.nameContainer}>
         <Text style={styles.name}>{data.username}</Text>
       </View>
 
-    </View>
+    </TouchableOpacity>
   );
 }
 

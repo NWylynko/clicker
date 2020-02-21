@@ -16,7 +16,7 @@ function Post({data, navigation}) {
       borderBottomColor: 'lightgrey',
       borderBottomWidth: 1,
     }}>
-      <ProfileBar data={data.ProfileBar}  />
+      <ProfileBar data={data.ProfileBar} navigation={navigation} />
       <Image likeState={likeState} data={data.Image} />
       <Actions likeState={likeState} bookmarkState={bookmarkState}/>
       <Description data={data.Description}/>
