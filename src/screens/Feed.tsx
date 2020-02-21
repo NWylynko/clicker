@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView, FlatList, StyleSheet } from 'react-native';
 import Post from './Feed/Post'
 
-import { TestData } from './testData'
+import { TestData } from '../testData'
 
 export default function Feed({ navigation }) {
   return (
@@ -10,7 +10,7 @@ export default function Feed({ navigation }) {
       <FlatList
         data={TestData}
         renderItem={({ item }) => <Post data={item} navigation={navigation} />}
-        keyExtractor={item => item.timestamp.toString()}
+        keyExtractor={item => item.id}
       />
     </SafeAreaView>
   )

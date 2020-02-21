@@ -1,3 +1,13 @@
 import React from 'react'
 import Navigation from './src/navigation'
-export default Navigation
+import { isMobile } from './src/components/isMobile'
+import { View } from 'react-native'
+
+export default function App() {
+  if (isMobile) {
+    return (<Navigation />)
+  } else {
+    return (<View style={{ flex: 1, width: 600, alignSelf: 'center' }}><Navigation /></View>)
+  }
+  
+}

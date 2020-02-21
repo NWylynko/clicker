@@ -1,0 +1,44 @@
+[
+  {
+    'repeat(5, 10)': {
+      id: '{{objectId()}}',
+      username: '{{firstName()}}',
+      pic: { source: 'http://placehold.it/32x32' } ,
+      text: '{{lorem(1, "paragraphs")}}',
+    }
+  }
+]
+
+
+[
+  {
+    'repeat(5, 10)': {
+      Image: {
+      	high: 'http://placehold.it/500x500',
+        low: 'http://placehold.it/50x50',
+        color: 'pink'
+      },
+      ProfileBar: {
+      	pic: {
+        	source: 'http://placehold.it/32x32'
+        },
+        username: '{{firstName()}}',
+      },
+      Description: {
+      	text: '{{lorem(1, "paragraphs")}}',
+      },
+      Comments: [
+            {
+                'repeat(2, 2)': {
+                id: '{{objectId()}}',
+                username: '{{firstName()}}',
+                pic: { source: 'http://placehold.it/32x32' } ,
+                text: '{{lorem(1, "paragraphs")}}',
+                }
+            }
+        ],
+      timestamp: 0,
+      id: '{{objectId()}}',
+    }
+  }
+]

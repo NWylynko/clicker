@@ -1,10 +1,22 @@
 import React from 'react';
-import { SafeAreaView, Text, StyleSheet } from 'react-native';
+import { SafeAreaView, FlatList, StyleSheet } from 'react-native';
+import { CommentData } from '../testData'
+import Comment from './Comments/Comment';
+import InputComment from './Comments/InputComment'
 
-export default function Feed() {
+export default function Comments({ route }) {
+  
+  const { postID } = route.params;
+
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Comments</Text>
+      
+      <FlatList
+        data={CommentData}
+        renderItem={({ item }) => <Comment data={item}/>}
+        keyExtractor={item => item.id}
+      />
+      <InputComment />
     </SafeAreaView>
   )
 }

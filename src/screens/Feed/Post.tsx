@@ -20,7 +20,7 @@ function Post({data, navigation}) {
       <Image likeState={likeState} data={data.Image} />
       <Actions likeState={likeState} bookmarkState={bookmarkState}/>
       <Description data={data.Description}/>
-      <Comments data={data.Comments} navigation={navigation}/>
+      <Comments data={data.Comments} navigation={navigation} postID={data.id} />
     </View>
   )
 }

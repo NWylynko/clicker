@@ -2,9 +2,9 @@ import React, { memo } from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native'
 import Comment from './Comments/Comment';
 
-function Comments({ data, navigation }) {
+function Comments({ data, navigation, postID }) {
   return (
-    <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Comments')}>
+    <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Comments', { postID })}>
 
       { data[0] ? <Comment data={data[0]}/> : null }
       { data[0] ? <Comment data={data[1]}/> : null }
