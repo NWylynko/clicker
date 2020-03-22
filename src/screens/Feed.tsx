@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SafeAreaView, FlatList, StyleSheet } from 'react-native';
 import Post from './Feed/Post'
 
