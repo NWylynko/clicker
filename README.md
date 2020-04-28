@@ -35,4 +35,3 @@ to test:
 - `expo build:web`
 - `expo build:ios`
 - `expo build:android`
-- find build folder in smalltalk folder
