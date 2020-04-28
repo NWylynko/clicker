@@ -13,7 +13,7 @@ to test:
 - clone repo
   - `git clone https://github.com/NWylynko/clicker`
 - cd into app dir
-  - `cd small-talk`
+  - `cd clicker`
 - install node packages
   - `expo install`
 
