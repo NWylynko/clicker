@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, StyleSheet, Image, FlatList } from 'react-native';
 import { deviceWidth } from '../../components/isMobile';
+import profileData, { post } from './types';
 
-export function PreviewPics({ data, setScroll }) {
+export function PreviewPics({ data, setScroll } : {data: profileData["posts"], setScroll: React.Dispatch<React.SetStateAction<boolean>>}) {
 
   const styles = StyleSheet.create({
     image: {
@@ -14,19 +15,19 @@ export function PreviewPics({ data, setScroll }) {
     }
   });
 
-  function Pic({ item }) {
+  function Pic({ item } : { item: post}) {
     return (<Image style={styles.image} source={{ uri: item.image }} />);
   }
 
-  function Row({items}) {
+  function Row({items} : {items: any}) {
     console.log(items)
     return (
       <FlatList
         data={items}
-        renderItem={({ item }) => <Pic item={item} />}
-        keyExtractor={item => item.id}
+        renderItem={({ item } : { item: post}) => <Pic item={item} />}
+        keyExtractor={(item: post) => item.id}
         style={{flexDirection: 'row'}}
-        // listKey={() => "FL_" + new Date().getTime()}
+        listKey={items[0].id.substring(1, 5) + items[1].id.substring(1, 5)} 
       />
     )
   }
@@ -35,20 +36,19 @@ export function PreviewPics({ data, setScroll }) {
     <SafeAreaView style={{ margin: 1, flex: 1 }}>
       <FlatList
         onScroll={() => setScroll(true)}
-        data={data.chunk(4)}
-        renderItem={({ item }) => <Row items={item} />}
-        keyExtractor={() => "FL_" + new Date().getTime()}
+        data={chunk(data, 4)}
+        renderItem={(items: profileData["posts"]) => <Row items={items} />}
+        keyExtractor={(items: profileData["posts"]) => "FL_" + items[0].id.substring(1, 5) + items[1].id.substring(1, 5)}
       />
     </SafeAreaView>);
 }
 
 
 // https://stackoverflow.com/questions/8495687/split-array-into-chunks
-Object.defineProperty(Array.prototype, 'chunk', {
-  value: function(chunkSize) {
-    var R = [];
-    for (var i = 0; i < this.length; i += chunkSize)
-      R.push(this.slice(i, i + chunkSize));
-    return R;
-  }
-});
+
+function chunk(array: any[], chunkSize: number) {
+  var R = [];
+  for (var i = 0; i < array.length; i += chunkSize)
+    R.push(array.slice(i, i + chunkSize));
+  return R;
+}

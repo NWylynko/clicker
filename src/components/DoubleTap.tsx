@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
-import { TouchableHighlight } from 'react-native'
+import { TouchableHighlight, GestureResponderEvent, View } from 'react-native'
 
-export default function DoubleTap({ children, onDoubleTap}) {
+interface DoubleTap {
+  children: React.ReactNode,
+  onDoubleTap: (event: GestureResponderEvent) => void
+}
+
+export default function DoubleTap({ children, onDoubleTap }: DoubleTap): JSX.Element {
 
   const [lastPress, setLastPress] = useState(0)
 
-  function onPress() {
+  const onPress = (event: GestureResponderEvent) => {
     var delta = new Date().getTime() - lastPress;
 
-    if(delta < 200) {
-      onDoubleTap()
+    if (delta < 200) {
+      onDoubleTap(event)
     }
 
     setLastPress(new Date().getTime())
@@ -18,8 +23,10 @@ export default function DoubleTap({ children, onDoubleTap}) {
 
   return (
     <TouchableHighlight onPress={onPress}>
-      {children}
+      <View>
+        {children}
+      </View>
     </TouchableHighlight>
-    
+
   );
 }

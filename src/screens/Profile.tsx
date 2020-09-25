@@ -8,7 +8,7 @@ import { View } from 'react-native';
 
 export default function Profile({route}) {
 
-  const [scroll, setScroll] = useState(false)
+  const [scroll, setScroll] = useState<boolean>(false)
   
   useEffect(() => {
     console.log(route.params)
